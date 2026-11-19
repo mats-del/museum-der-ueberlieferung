@@ -261,6 +261,30 @@ const defs=[
 {f:mk3,f3:G3,x:0,col:0xffe2c8,n:'3. Das Paradoxon',e:'Der Mensch ohne Ich',d:'Ohne Ich fehlt die vermittelnde Mitte. Trieb, Gewissen und äußere Wirklichkeit geraten ungebremst aneinander; Entscheidungen, Planung, Selbsterhaltung und ein tragfähiger Kompromiss werden kaum möglich.'},
 {f:mk2,f3:G2,x:8.45,col:0xff3030,n:'2. Der Zerstörer',e:'Der Mensch ohne Über-Ich',d:'Ohne Über-Ich fehlt die innere Bremse. Impulse werden sofort ausgelebt, Regeln und die Folgen für andere verlieren Gewicht; Schuldgefühle, Selbstkontrolle und Orientierung an Normen brechen weg.'}];
 const Z=-6.5,ups=[];
+/* Seitliche Galerie für die vereinte Freud-Kreatur. Die GLB-Datei bleibt extern,
+   damit der Browser sie nur beim Betreten dieses Ausstellungsbereichs lädt. */
+const ANGEL={x:17,z:-15.2,n:'Die vereinte Psyche',e:'Es · Ich · Über-Ich im Gleichgewicht',d:'Eine einzige Kreatur, in der die drei Instanzen nicht getrennt, sondern als miteinander verbundene Kräfte gedacht sind. Das Es steht für den inneren Antrieb, das Ich vermittelt zwischen inneren Wünschen und Wirklichkeit, und das Über-Ich gibt Orientierung durch Werte und Regeln.'};
+(function(){
+ const ax=ANGEL.x,az=ANGEL.z,wall=new T.MeshStandardMaterial({color:0x121217,roughness:.82,metalness:.12}),trim=new T.MeshStandardMaterial({color:0x2b2024,roughness:.45,metalness:.35});
+ // Boden, Rückwand und Seitenwand: Die offene Seite bildet den Zugang aus dem Labor.
+ bx(12,.08,12,ax,.04,az,wall);bx(12,6.8,.16,ax,3.4,az-6,wall);bx(.16,6.8,12,ax+6,3.4,az,wall);
+ bx(.18,6.8,.55,ax-5.72,3.4,az-5.72,trim);bx(.18,6.8,.55,ax-5.72,3.4,az+5.72,trim);bx(.18,6.8,.55,ax+5.72,3.4,az-5.72,trim);bx(.18,6.8,.55,ax+5.72,3.4,az+5.72,trim);
+ bx(12,.18,.3,ax,6.72,az-5.86,trim);bx(.3,.18,12,ax+5.86,6.72,az,trim);
+ // Rote Lichtlinie und drei ruhige Lichtquellen für einen sakralen, aber zeitgenössischen Raum.
+ bx(8,.025,.08,ax,.13,az-5.72,RED);bx(.08,.025,8,ax+5.72,.13,az,RED);
+ const al=new T.PointLight(0xff2638,2.6,14);al.position.set(ax,4.8,az-2.8);s.add(al);
+ const ar=new T.PointLight(0x9a1830,1.8,12);ar.position.set(ax+4.6,2.5,az+1);s.add(ar);
+ const as=new T.SpotLight(0xffe8d0,7,18,.32,.75);as.position.set(ax,6.5,az+1.1);as.target.position.set(ax,1.6,az);s.add(as,as.target);
+ // Sockel und zurückhaltende Bezeichnung.
+ bx(3.1,.62,3.1,ax,.31,az,mt(1,1,{roughness:.22,metalness:.28}));bx(2.75,.035,2.75,ax,.64,az,RED);
+ const title=tex(1024,220,(c,w,h)=>{c.fillStyle='#09090b';c.fillRect(0,0,w,h);c.strokeStyle='#8a1824';c.lineWidth=5;c.strokeRect(8,8,w-16,h-16);c.fillStyle='#e3d9ce';c.textAlign='center';c.font='52px Georgia';c.fillText('DIE VEREINTE PSYCHE',w/2,88);c.font='30px Georgia';c.fillStyle='#9f9588';c.fillText('ES · ICH · ÜBER-ICH',w/2,148)});
+ const tp=new T.Mesh(new T.PlaneGeometry(4.7,1),new T.MeshBasicMaterial({map:title,transparent:true,depthWrite:false}));tp.position.set(ax,3.35,az-5.88);tp.rotation.y=Math.PI;s.add(tp);
+ // Axis-aligned collision boundaries; the front remains open for visitors.
+ BN.push([ax,az-5.98,6.15,.22],[ax+6,az,.22,6.15]);
+ const g=new T.Group();g.position.set(ax,0,az);s.add(g);let loaded=false;
+ new T.GLTFLoader().load('freud-reflektierter-engel.glb',gl=>{const o=gl.scene;o.rotation.y=Math.PI;o.updateMatrixWorld(true);const b=new T.Box3().setFromObject(o),sz=b.getSize(new T.Vector3()),cc=b.getCenter(new T.Vector3()),k=3.55/Math.max(sz.y,.001);o.scale.setScalar(k);o.position.set(-cc.x*k,-b.min.y*k,-cc.z*k);o.traverse(m=>{if(m.isMesh&&m.material){m.material.envMapIntensity=1.25;m.material.needsUpdate=true}});g.add(o);loaded=true},e=>console.error('Vereinte Psyche GLB konnte nicht geladen werden',e));
+ ANGEL.g=g;ANGEL.loaded=()=>loaded;
+})();
 defs.forEach(o=>{const b=o.f(),b3=o.f3();[b,b3].forEach(q=>{q.g.position.set(o.x,1.1,Z);s.add(q.g);ups.push(q.u)});o.p=[b.g,b3.g];b.g.visible=false;
 const pl=new T.Mesh(new T.BoxGeometry(2.2,1.1,2.2),mt(1,1,{roughness:.2}));pl.position.set(o.x,.55,Z);s.add(pl);
 const pq=new T.Mesh(new T.PlaneGeometry(.9,.22),new T.MeshBasicMaterial({map:tex(512,128,(x,w,h)=>{x.fillStyle='#111';x.fillRect(0,0,w,h);x.fillStyle='#d8d2c4';x.font='46px Georgia';x.textAlign='center';x.fillText(o.n.slice(3).toUpperCase(),w/2,62);x.font='26px Georgia';x.fillStyle='#8f8a7e';x.fillText(o.e,w/2,102)})}));pq.position.set(o.x,.55,Z+1.11);s.add(pq);
@@ -393,8 +417,9 @@ pos.z=cl(pos.z,-47.4,22.2);if(pos.z<=-24.1)pos.x=cl(pos.x,-3.7,3.7);else pos.x=c
 P.forEach(q=>{const dx=pos.x-q[0],dz=pos.z-q[1],d=Math.hypot(dx,dz)||.01;if(d<q[2]){pos.x=q[0]+dx/d*q[2];pos.z=q[1]+dz/d*q[2]}});BN.forEach(q=>{const dx=pos.x-q[0],dz=pos.z-q[1],px=q[2]-Math.abs(dx),pz=q[3]-Math.abs(dz);if(px>0&&pz>0){if(px<pz)pos.x+=Math.sign(dx||1)*px;else pos.z+=Math.sign(dz||1)*pz}});
 cam.position.set(pos.x,1.6+jumpY+Math.sin(t*6)*(f||sd?.015:0),pos.z);cam.rotation.set(pitch,yaw,0,'YXZ');
 defs.forEach((o,i)=>{NEAR[i]=cl((9-Math.hypot(pos.x-o.x,pos.z-Z))/4,0,1)});ups.forEach(u=>u(t));dust(t);audioUpd(t);if(GAZE)GAZE(t,dt);if(LABU)LABU(t);
-let n=-1,bd=3.8;defs.forEach((o,i)=>{const d=Math.hypot(pos.x-o.x,pos.z-Z);if(d<bd){bd=d;n=i}});const dF=Math.hypot(pos.x,pos.z-13);if(dF<bd){bd=dF;n=3}
-if(n!==cur){cur=n;if(n<0)inf.classList.remove('on');else{const it=n===3?FREUD:defs[n];inf.querySelector('h2').textContent=it.n;inf.querySelector('em').textContent=it.e;inf.querySelector('p').textContent=it.d;inf.classList.add('on')}}
+if(ANGEL.g){const ad=cl((8.5-Math.hypot(pos.x-ANGEL.x,pos.z-ANGEL.z))/3.5,0,1);ANGEL.g.rotation.y=Math.sin(t*.38)*.035;ANGEL.g.position.y=Math.sin(t*1.2)*.018*ad}
+let n=-1,bd=3.8;defs.forEach((o,i)=>{const d=Math.hypot(pos.x-o.x,pos.z-Z);if(d<bd){bd=d;n=i}});const dF=Math.hypot(pos.x,pos.z-13);if(dF<bd){bd=dF;n=3}const dA=Math.hypot(pos.x-ANGEL.x,pos.z-ANGEL.z);if(dA<bd){bd=dA;n=4}
+if(n!==cur){cur=n;if(n<0)inf.classList.remove('on');else{const it=n===3?FREUD:n===4?ANGEL:defs[n];inf.querySelector('h2').textContent=it.n;inf.querySelector('em').textContent=it.e;inf.querySelector('p').textContent=it.d;inf.classList.add('on')}}
 r.render(s,cam)}
 loop();
 </script></body></html>
