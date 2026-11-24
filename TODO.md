@@ -2,7 +2,8 @@
 
 ## Erledigt
 
-- Die ursprüngliche begehbare Three.js-Museumsszene aus `museum-der-triebev2` ist die Basis des neuen Repositories.
+- Das neue Repository besitzt eine eigenständige begehbare Three.js-Archivarchitektur und übernimmt nur das technische Prinzip der Navigation.
+- Freud-/Triebe-Inhalte, alte Skulpturen, das vereinte Psyche-Modell und das alte GLB sind aus der Seite und den Assets entfernt.
 - Die historische Quellenkammer ist als öffnbarer, responsiver Dialog in die 3D-Seite integriert.
 - Vier Räume sind vorhanden: Tagebuch, Transportliste, Vergleich und Gegenwart.
 - Die echte Transportlistenabbildung vom 3. September 1944 wird lokal geladen, unverändert angezeigt und separat vergrößert.
@@ -14,4 +15,4 @@
 
 ## Technische Hinweise
 
-Die Seite bleibt eine statische Einzeldatei mit CDN-Abhängigkeiten für Three.js. Die bestehende Touch-/Joystick- und Tastatursteuerung der 3D-Szene bleibt aktiv; die Quellenkammer liegt als eigenständige UI-Schicht darüber.
+Die Seite bleibt eine statische Einzeldatei mit CDN-Abhängigkeit für Three.js. Touch-/Joystick- und Tastatursteuerung bleiben aktiv; die Quellenkammer liegt als eigenständige UI-Schicht darüber. Die historischen Originaldaten bleiben von den didaktischen 3D-Modellen getrennt.

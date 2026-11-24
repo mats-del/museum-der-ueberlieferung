@@ -1,12 +1,12 @@
 # Museum der Überlieferung
 
-Dieses Repository erweitert das ursprüngliche begehbare Three.js-Museum um eine historische Quellenkammer zu Anne Franks Tagebuch und der Deportationsliste Westerbork–Auschwitz vom 3. September 1944.
+Dieses Repository enthält ein eigenständiges begehbares Three.js-Museum zu Anne Franks Tagebuch und der Deportationsliste Westerbork–Auschwitz vom 3. September 1944. Das getrennte Repository `museum-der-triebev2` bleibt das Museum der Triebe/Liebe; seine inhaltlichen Skulpturen und Texte werden hier nicht verwendet.
 
 ## Nutzung
 
-Die Seite ist eine statische Website. `index.html` enthält die ursprüngliche begehbare 3D-Szene sowie den neuen historischen Ausstellungsdialog. Die Schaltfläche **Historische Ausstellung** öffnet vier Räume: Tagebuch, Transportliste, Vergleich und Gegenwart. Die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und wird unverändert angezeigt; der Zoom öffnet eine separate Ansicht.
+Die Seite ist eine statische Website. `index.html` enthält eine neue Archivarchitektur mit drei begehbaren Räumen sowie die Quellenkammer. Die Schaltfläche **Quellenkammer** öffnet vier inhaltliche Ansichten: Tagebuch, Transportliste, Vergleich und Gegenwart. Die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und wird unverändert angezeigt; der Zoom öffnet eine separate Ansicht.
 
-Zusätzlich stehen drei prozedural in Three.js erzeugte, ausdrücklich didaktische 3D-Objekte in der Szene: ein Tagebuchmodell, eine Archivbox und eine Dokumentvitrine. Sie sind keine Reproduktionen historischer Originale.
+Die Szene verwendet keine Freud-/Triebe-Skulpturen und kein altes GLB-Modell. Stattdessen stehen drei prozedural in Three.js erzeugte, ausdrücklich didaktische 3D-Objekte in der Szene: ein Tagebuchmodell, eine Archivbox und eine Dokumentvitrine. Sie sind keine Reproduktionen historischer Originale.
 
 Zum lokalen Testen genügt beispielsweise:
 
