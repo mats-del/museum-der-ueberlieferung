@@ -1,25 +1,7 @@
-# Museum der Überlieferung – Plan
+# Integrationsplan
 
-## Ziel
-Die bestehende Three.js-Codebasis von `museum-der-triebev2` wird zu einem interaktiven digitalen Geschichtsmuseum über Anne Franks Tagebuch und die Deportationsliste Westerbork–Auschwitz vom 3. September 1944 erweitert.
+Das neue Repository übernimmt die ursprüngliche begehbare Three.js-Szene unverändert als technische Basis. Die historischen Inhalte werden als separate, nicht invasive Quellenkammer in die Szene gelegt: Ein Button öffnet einen seitlichen Ausstellungsdialog, während Navigation und bestehender 3D-Raum erhalten bleiben.
 
-## Umsetzung
-- Die vorhandene GLB- und Three.js-Basis bleibt als ruhige, begehbare Museumsatmosphäre erhalten.
-- Eine zugängliche Ausstellungsebene mit vier Räumen ergänzt den 3D-Raum: Tagebuch, Deportationsliste, Vergleich und Spuren bis in die Gegenwart.
-- Die Transportliste wird als echte Archivabbildung eingebunden und per Zoom-Dialog vergrößerbar gemacht; Hervorhebungen liegen nur als separate UI-Ebene über dem Bild.
-- Historische Aussagen werden mit den vom Nutzer vorgegebenen Institutionen verlinkt. Nicht belegte Zwischenstationen der Listenüberlieferung werden ausdrücklich als offene Lücke bezeichnet.
-- Die responsive Oberfläche ist keyboard- und touch-tauglich: Raum-Navigation, Zeitleiste, Quellenkarten, Vergleichsschalter und Dokument-Zoom funktionieren ohne 3D-Steuerung.
+Die Quellenkammer bietet vier Räume. Sie erklärt Manuskriptfassungen, Auffinden und Veröffentlichung des Tagebuchs, zeigt die echte Transportlistenabbildung mit separatem Zoom, vergleicht Selbstzeugnis und Verwaltungsquelle und zeichnet die belegten Überlieferungswege bis in die Gegenwart nach. Nicht belegte Zwischenstationen der Listenüberlieferung werden nicht ergänzt, sondern als offene Lücke markiert.
 
-## Gestaltung
-- **Mögliche Richtungen:** Archivale Dunkelkammer (0,07), typografischer Lesesaal (0,05), nüchterne Gedenkvitrine (0,08).
-- **Gewählt: Archivale Dunkelkammer.** Dunkles Graphit, Papierweiß und ein gedämpftes Rot schaffen Konzentration statt Pathos. Die Räume arbeiten mit asymmetrischen Text- und Objektflächen, dünnen Archivlinien und Vitrinenrahmen.
-- **Interaktion:** Jede Bewegung soll Erkenntnis freilegen: ein Raumwechsel öffnet eine Perspektive, ein Klick auf ein Objekt erklärt seine Quellenlage, Zoom trennt Originalbild und redaktionelle Hervorhebung.
-- **Typografie:** `Georgia` für historische Überschriften und `Inter`/System Sans für Navigation und Quellenapparat.
-- **Marke:** Eine rote Archivklammer `//` als wiederkehrendes Zeichen für die Verbindung zweier Dokumente.
-
-## Projektstruktur
-- `index.html`: statische Ausstellung, UI-Logik und Three.js-Raum.
-- `freud-reflektierter-engel.glb`: bestehendes 3D-Objekt aus dem Ausgangsrepository, als diskrete Museumsplastik wiederverwendet.
-- `assets/lijst03094407.jpg`: echte Abbildung der Transportliste aus der Forschungsdatenbank des Anne Frank House.
-- `manus-routes.json`: deklarierte Seite `/`.
-- `TODO.md`: nachverfolgbare Umsetzungskriterien.
+Zur räumlichen Ergänzung entstehen drei kleine prozedurale Three.js-Modelle: ein rot eingebundenes Tagebuchmodell, eine Archivbox und eine gläserne Dokumentvitrine. Sie sind im Code als didaktische Objektmodelle markiert und nicht als historische Originale ausgegeben. Das ursprüngliche Repository `museum-der-triebev2` wird nicht verändert.
