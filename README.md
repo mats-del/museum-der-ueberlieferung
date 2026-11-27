@@ -4,7 +4,7 @@ Dieses Repository enthält ein eigenständiges begehbares Three.js-Museum zu Ann
 
 ## Nutzung
 
-Die Seite ist eine statische Website. `index.html` enthält eine begehbare Archivarchitektur ohne externe Inhalts-Buttons. Tagebuch, schematische Wegkarte und Transportlistenobjekt stehen als direkte Exponate im Raum. Eine geprüfte Wandzeitleiste erläutert die Überlieferung des Tagebuchs; die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und bleibt unverändert.
+Die Seite ist eine statische Website. `index.html` enthält eine einzige offene, begehbare Museumshalle ohne externe Inhalts-Buttons. Die schematische Wegkarte mit dem Tagebuchweg steht als zentrales Exponat in der Mitte; Tagebuch und Transportlistenobjekt flankieren sie an den Seiten. Eine geprüfte Wandzeitleiste erläutert die Überlieferung des Tagebuchs; die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und bleibt unverändert.
 
 Die Szene verwendet keine Freud-/Triebe-Skulpturen und kein altes GLB-Modell. Stattdessen stehen drei hochwertige GLB-Modelle in der Szene: ein Tagebuchmodell, eine schematische Reliefkarte und eine Transportlisten-Vitrine. Sie sind keine Reproduktionen historischer Originale. Die Wandtafeln machen Datum, Quellenstatus und offene Präzisierungen sichtbar.
 
