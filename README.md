@@ -4,9 +4,9 @@ Dieses Repository enthält ein eigenständiges begehbares Three.js-Museum zu Ann
 
 ## Nutzung
 
-Die Seite ist eine statische Website. `index.html` enthält eine neue Archivarchitektur mit drei begehbaren Räumen sowie die Quellenkammer. Die Schaltfläche **Quellenkammer** öffnet vier inhaltliche Ansichten: Tagebuch, Transportliste, Vergleich und Gegenwart. Die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und wird unverändert angezeigt; der Zoom öffnet eine separate Ansicht.
+Die Seite ist eine statische Website. `index.html` enthält eine begehbare Archivarchitektur ohne externe Inhalts-Buttons. Tagebuch, schematische Wegkarte und Transportlistenobjekt stehen als direkte Exponate im Raum. Eine geprüfte Wandzeitleiste erläutert die Überlieferung des Tagebuchs; die Originalabbildung der Transportliste liegt unter `assets/lijst03094407.jpg` und bleibt unverändert.
 
-Die Szene verwendet keine Freud-/Triebe-Skulpturen und kein altes GLB-Modell. Stattdessen stehen drei prozedural in Three.js erzeugte, ausdrücklich didaktische 3D-Objekte in der Szene: ein Tagebuchmodell, eine Archivbox und eine Dokumentvitrine. Sie sind keine Reproduktionen historischer Originale.
+Die Szene verwendet keine Freud-/Triebe-Skulpturen und kein altes GLB-Modell. Stattdessen stehen drei hochwertige GLB-Modelle in der Szene: ein Tagebuchmodell, eine schematische Reliefkarte und eine Transportlisten-Vitrine. Sie sind keine Reproduktionen historischer Originale. Die Wandtafeln machen Datum, Quellenstatus und offene Präzisierungen sichtbar.
 
 Zum lokalen Testen genügt beispielsweise:
 
